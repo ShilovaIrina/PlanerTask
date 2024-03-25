@@ -51,6 +51,9 @@ public class TodosTest {
         todos.add(meeting);
 
         Assertions.assertTrue(epic.equals(todos.search("Яйца")[0]));
+
+        Task[] tmpArr = {epic};
+        Assertions.assertArrayEquals(tmpArr, todos.search("Яйца"));
     }
 
     @Test
@@ -76,6 +79,9 @@ public class TodosTest {
 
         Assertions.assertEquals(2, todos.search("Позвонить родителям").length);
 
+        Task[] tmpArr = {simpleTask, simpleTask2};
+        Assertions.assertArrayEquals(tmpArr, todos.search("Позвонить родителям"));
+
     }
 
     @Test
@@ -99,5 +105,7 @@ public class TodosTest {
         todos.add(meeting);
 
         Assertions.assertEquals(0, todos.search("Тортик").length);
+        Task[] tmpArr = {};
+        Assertions.assertArrayEquals(tmpArr, todos.search("Тортик"));
     }
 }
